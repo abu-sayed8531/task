@@ -1,12 +1,11 @@
 <?php
 
-namespace config;
+namespace Config;
 
 use \mysqli;
 
 class Db
 {
-
     private static $conn = null;
 
     public function __construct()
@@ -15,7 +14,7 @@ class Db
 
         if (!self::$conn) {
 
-            die(self::$conn->connect_error);
+            die(json_encode(["error" => "Connection error"]));
         }
     }
     public static function getConnection()
